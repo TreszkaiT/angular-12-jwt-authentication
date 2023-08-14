@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(data);
+        this.tokenStorage.saveToken(data.accessToken);          // 1. Ha megérkezik a Token -> lementjük: accessToken-t mentjük le itt egy tokenStorage-be
+        this.tokenStorage.saveUser(data);                       // 2. data Obj lementése: mert lehetnek benne egyéb infók, userId, stb...
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;

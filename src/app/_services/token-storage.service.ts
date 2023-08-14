@@ -14,8 +14,8 @@ export class TokenStorageService {
   }
 
   public saveToken(token: string): void {
-    window.sessionStorage.removeItem(TOKEN_KEY);
-    window.sessionStorage.setItem(TOKEN_KEY, token);
+    window.sessionStorage.removeItem(TOKEN_KEY);          // ha van már ilyen Token a sessionStorage-ban, akkor azt kitörli
+    window.sessionStorage.setItem(TOKEN_KEY, token);      // ellenkező esetben elmenti bele.... De ha bezárom az ablakot, ez az infó elvész a sessionStorage miatt
   }
 
   public getToken(): string | null {
